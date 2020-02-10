@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basix example 2</title>
+
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <button @click="counter++">Increase</button>
+        <button v-on:click="counter--">Decrease</button>
+        <button v-on:click="secondCounter++">Increase second counter</button>
+        <p>Counter: {{counter}} | {{secondCounter}}</p>
+        <p>Counter: {{result()}} | {{output}}</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter: 0,
+            secondCounter: 0
+        },
+        computed: {
+            output: function () {
+                console.log('Method')
+                return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+            }
+        },
+        methods: {
+            result: function () {
+                console.log('Result')
+                return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+            }
+        },
+        watch: {
+            counter: function(value){
+                var vm = this;
+                setTimeout(function(){
+                    vm.counter = 0;
+                }, 2000)
+            }
+        }
+    });
+</script>
+
+</html>

@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exercise 1</title>
-    <script src="../../vue.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 
 <body>
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-
     <div id="app">
         <input type="text" v-on:input="changeTitle">
         <h1>{{ inputText }}</h1>
@@ -21,7 +19,9 @@
         </div>
 
         <div>
-            <button v-on:click="increase(3)">Click me</button>
+            <button v-on:click="increase(3)">Click me (+3)</button>
+            <button v-on:click="counter += 2">Click me (+2)</button>
+
             <p>{{counter}}</p>
         </div>
         <div style="border: 1px solid goldenrod">

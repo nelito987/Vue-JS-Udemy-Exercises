@@ -1,0 +1,44 @@
+#effect {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.highlight {
+  background-color: red;
+  width: 200px !important;
+}
+
+.shrink {
+  background-color: gray;
+  width: 50px !important;
+}
+
+.green{
+  background-color: green;
+}
+
+.size{
+  width: 100px;
+  height: 20px;
+}
+.shape{
+  border-radius: 15px;
+}
+
+.purple{
+  background-color: purple
+}
+
+.yellow{
+  background-color: yellow;
+}
+
+.blue{
+  background-color: blue;
+}
+
+.progress-bar {
+  width: 150px;
+  height: 30px;
+}
