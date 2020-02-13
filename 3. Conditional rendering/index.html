@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<div id="app">
+	<ul>
+		<li v-for="(ingredient, index) in ingredients" :key="ingredient">{{ingredient}} ({{index}})</li>
+	</ul>
+	<button @click="ingredients.push('new ingredient')">Add new</button>
+
+	<template v-for="(ingredient, index) in ingredients">
+		<p> <b>{{ingredient}}<b> - <i>{{index}}</i> </p>
+	</template>	
+	<ul>
+		<li v-for="person in persons">
+			<div v-for="(value, key, index) in person">
+				{{key}} : <span v-bind:class="['customFont']">{{value}}</span> ({{index}})
+			</div>
+		</li>		
+	</ul>
+</div>
+
+<script src="app.js"></script>
+
