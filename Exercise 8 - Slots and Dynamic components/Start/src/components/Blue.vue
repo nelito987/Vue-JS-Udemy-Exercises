@@ -1,7 +1,7 @@
 <template>
   <div>
     <slot></slot>
-    <p>Some text in the BLUE paragraph</p>
+    <p>Some text in the BLUE mjmhj,m,h,hk,paragraph</p>
   </div>
 </template>
 
