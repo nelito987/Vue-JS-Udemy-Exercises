@@ -1,0 +1,64 @@
+<template>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <h1>Directives</h1>
+        <p v-text="'Some text from text directive'"></p>
+        <p v-html="'<strong>Html directive example</strong>'"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <h1>Custom Directives</h1>
+        <p v-highlight:background.delayed="'pink'">Color this</p>
+        <p v-local-highlight:background.delayed.blink="{mainColor:'pink', secondColor: 'violet', delay: 1000}">Color this</p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  //registering directives locally
+  directives: {
+    "local-highlight": {
+      bind(el, binding, vnode) {
+
+        var delay = 0;
+        if (binding.modifiers["delayed"]) {
+          delay = 3000;
+        }
+
+        if (binding.modifiers["blink"]) {
+            console.log(' blink')
+          let mainColor = binding.value.mainColor;
+          let secondColor = binding.value.secondColor;
+          let currentColor = mainColor;
+
+          setTimeout(()=>{
+              setInterval(()=>{
+                  currentColor == secondColor ? currentColor = mainColor : currentColor = secondColor;
+                  if (binding.arg == "background") {
+                      el.style.backgroundColor = currentColor;
+                    } else {
+                      el.style.color = currentColor;
+                    }
+                }, 1000)
+          }, binding.value.delay)
+        }
+
+        setTimeout(() => {
+          if (binding.arg == "background") {
+            el.style.backgroundColor = binding.value.mainColor;
+          } else {
+            el.style.color = binding.value.mainColor;
+          }
+        }, delay);
+      }
+    }
+  }
+};
+</script>
+
+<style>
+</style>
