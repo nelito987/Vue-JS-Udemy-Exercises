@@ -10,14 +10,8 @@ const mutations = {
         console.log('BUY_STOCK');
         ;
         if (record) {
-            record.quantity += quantity;
-            console.log(typeof record.quantity);
-            console.log(typeof quantity);
-            console.log(typeof this.quantity)
+            record.quantity += quantity;            
         } else {
-
-            console.log(typeof quantity);
-            console.log(typeof this.quantity)
             state.stocks.push({
                 id: stockId,
                 quantity: quantity

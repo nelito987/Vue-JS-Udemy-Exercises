@@ -34,7 +34,7 @@ export default {
   props: ["stock"],
   data() {
     return {
-      quantity: 5
+      quantity: 0
     };
   },
   computed: {
@@ -46,16 +46,12 @@ export default {
     }
   },
   methods: {
-    buyStock() {
-      //debugger;
+    buyStock() {      
       const order = {
         stockId: this.stock.id,
         stockPrice: this.stock.price,
         quantity: this.quantity
-      };
-      console.log('buyStock');
-      console.log(typeof order.quantity);
-      //debugger;
+      };     
       this.$store.dispatch("buyStocks", order);
       this.quantity = 0;
     }
