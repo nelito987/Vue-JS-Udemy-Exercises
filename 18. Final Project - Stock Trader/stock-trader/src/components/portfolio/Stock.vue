@@ -55,7 +55,7 @@ export default {
         quantity: this.quantity
       };
       this.sellStockAction(order);
-      //this.quantity = 0;
+      this.quantity = 0;
     }
   }
 };
